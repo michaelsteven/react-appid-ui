@@ -1,0 +1,31 @@
+{
+  "hamburger": {
+    "menubutton": {
+      "aria-label": "Main Menu"
+    },
+    "menu": {
+      "aria-label": "Main Menu Options",
+      "items": {
+        "home": "Home",
+        "item1": "Item-1",
+        "item2": "Item-2",
+        "item3": "Signup"
+      }
+    }
+  },
+  
+  "profile": {
+    "menubutton": {
+      "text": "Profile",
+      "aria-label": "Profile Menu"
+    },
+    "menu": {
+      "aria-label": "Profile Menu Options",
+      "items": {
+        "profile": "Profile",
+        "account": "Account",
+        "logout": "Logout"
+      }
+    }
+  }
+}

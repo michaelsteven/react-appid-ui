@@ -1,0 +1,41 @@
+form button {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1rem;
+  border: 1;
+  background-color: green;
+}
+
+form button:disabled {
+  background-color:rgb(226, 226, 226);
+}
+
+form input {
+  display: block;
+  width: 250px;
+  font-size: 1.25em;
+  padding-top: 5px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  color: black;
+  background-color: #ececec;
+  border: 0px;
+  padding: 5px;
+}
+
+form span {
+  float: right;
+  color: red;
+}
+
+form label {
+  font-size: 1em;
+}
+
+form .row {
+  display: block;
+  max-width: 250px;
+  align-content: "space-between";
+}
