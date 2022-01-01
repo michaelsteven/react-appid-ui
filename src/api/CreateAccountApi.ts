@@ -1,11 +1,5 @@
 import sendRequest from "./SendRequest";
-
-type Account = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-};
+import { Account } from "../components/AppID/model";
 
 export function createAccount(account: Account) {
   return sendRequest({

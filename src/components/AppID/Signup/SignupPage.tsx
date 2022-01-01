@@ -9,8 +9,14 @@ export default function SignupPage() {
   const [error, setError] = useState<unknown>();
   const { t } = useTranslation("appid");
 
-  const handleSubmit = (account: Account) => {
+  const handleSubmit = (
+    account: Account & {
+      reenterpassword?: string;
+    }
+  ) => {
     if (account) {
+      delete account.reenterpassword;
+      alert(JSON.stringify(account));
       createAccount(account)
         .then((res) => {
           console.log(res);

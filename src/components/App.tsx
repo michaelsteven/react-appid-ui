@@ -6,6 +6,7 @@ import Header from "./Header";
 import HomePage from "./HomePage";
 import ProfilePage from "./Profile";
 import SignupPage from "./AppID/Signup";
+import LoginPage from "./AppID/Login";
 
 function Head() {
   const { i18n, t } = useTranslation();
@@ -27,6 +28,7 @@ function DefaultSwitch() {
     <Routes>
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/signup" element={<SignupPage />} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/" element={<HomePage />} />
     </Routes>
   );
