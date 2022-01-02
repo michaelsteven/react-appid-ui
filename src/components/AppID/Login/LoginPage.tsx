@@ -6,6 +6,7 @@ import { Credentials } from "../model";
 import LoginForm from "./LoginForm";
 import { login } from "../../../api/LoginApi";
 import Cookies from "universal-cookie";
+import { getAllByPlaceholderText } from "@testing-library/react";
 
 export default function LoginPage() {
   const [error, setError] = useState<unknown>();
@@ -14,20 +15,22 @@ export default function LoginPage() {
 
   const handleSubmit = (credentials: Credentials) => {
     if (credentials) {
-      credentials.redirectUri = "http://localhost:8080";
       login(credentials)
-        .then((token) => {
-          const { expires_in } = JSON.parse(token);
-          const cookies = new Cookies();
-          cookies.set("session_token", token, {
-            path: "/",
-            expires: new Date(new Date().getTime() + expires_in),
-          });
-          navigate("/");
-          window.location.reload();
+        .then(async (response) => {
+          if (response && response.status >= 200 && response.status < 300) {
+            await response.json();
+            navigate("/");
+            window.location.reload();
+          } else {
+            const json = await response.json();
+            console.log(json);
+            console.log(response);
+            const { message } = json;
+            setError(message);
+          }
         })
         .catch((error: any) => {
-          setError(error.error);
+          setError(error);
           console.log(error);
         });
     }

@@ -23,6 +23,7 @@
     "password": "Password",
     "submit": "Submit",
     "required": "Required",
-    "patterninvalid": "Invalid pattern"
+    "patterninvalid": "Invalid pattern",
+    "maxlengthexceeded": "Max length exceeded"
   }
 }
