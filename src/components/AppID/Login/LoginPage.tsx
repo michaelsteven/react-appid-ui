@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ErrorDisplay from "../../common/ErrorDisplay";
 import { Credentials } from "../model";
 import LoginForm from "./LoginForm";
 import { login } from "../../../api/LoginApi";
-import Cookies from "universal-cookie";
-import { getAllByPlaceholderText } from "@testing-library/react";
 
 export default function LoginPage() {
   const [error, setError] = useState<unknown>();
@@ -43,6 +41,10 @@ export default function LoginPage() {
           <div className="title">{t("login.page_title")}</div>
           <LoginForm onSubmit={handleSubmit}></LoginForm>
           <ErrorDisplay error={error} />
+          <div>Reset Password</div>
+          <div>
+            <Link to="/signup">Create an Account</Link>
+          </div>
         </div>
       </div>
     </div>

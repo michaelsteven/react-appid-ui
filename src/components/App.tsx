@@ -1,12 +1,13 @@
 import React, { Suspense } from "react";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./Header";
 import HomePage from "./HomePage";
 import ProfilePage from "./Profile";
 import SignupPage from "./AppID/Signup";
 import LoginPage from "./AppID/Login";
+import ProtectedRoutes from "./common/ProtectedRoutes";
 
 function Head() {
   const { i18n, t } = useTranslation();
@@ -26,10 +27,13 @@ function Head() {
 function DefaultSwitch() {
   return (
     <Routes>
-      <Route path="/profile" element={<ProfilePage />} />
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/" element={<HomePage />} />
+      <Route path="*" element={<Navigate to="/" />} />
+      <Route element={<ProtectedRoutes />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+      </Route>
     </Routes>
   );
 }
