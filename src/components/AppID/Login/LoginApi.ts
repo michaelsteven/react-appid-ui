@@ -1,5 +1,5 @@
-import sendRequest from "./SendRequest";
-import { Credentials } from "../components/AppID/model";
+import sendRequest from "../../common/SendRequest";
+import { Credentials } from "../model";
 
 export function login(credentials: Credentials) {
   return sendRequest({

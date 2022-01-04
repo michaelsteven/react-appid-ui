@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 import ErrorDisplay from "../../common/ErrorDisplay";
 import AccountForm from "./SignupForm";
 import { Account } from "../model";
-import { createAccount } from "../../../api/CreateAccountApi";
+import { createAccount } from "./CreateAccountApi";
 
-export default function SignupPage() {
+export function SignupPage() {
   const [error, setError] = useState<unknown>();
   const { t } = useTranslation("appid");
 

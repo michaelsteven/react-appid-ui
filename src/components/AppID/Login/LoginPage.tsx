@@ -4,9 +4,9 @@ import { useTranslation } from "react-i18next";
 import ErrorDisplay from "../../common/ErrorDisplay";
 import { Credentials } from "../model";
 import LoginForm from "./LoginForm";
-import { login } from "../../../api/LoginApi";
+import { login } from "./LoginApi";
 
-export default function LoginPage() {
+export function LoginPage() {
   const [error, setError] = useState<unknown>();
   const { t } = useTranslation("appid");
   const navigate = useNavigate();
@@ -41,7 +41,9 @@ export default function LoginPage() {
           <div className="title">{t("login.page_title")}</div>
           <LoginForm onSubmit={handleSubmit}></LoginForm>
           <ErrorDisplay error={error} />
-          <div>Reset Password</div>
+          <div>
+            <Link to="/lostpassword">Forgot Password</Link>
+          </div>
           <div>
             <Link to="/signup">Create an Account</Link>
           </div>

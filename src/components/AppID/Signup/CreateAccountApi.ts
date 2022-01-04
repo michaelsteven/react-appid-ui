@@ -1,5 +1,5 @@
-import sendRequest from "./SendRequest";
-import { Account } from "../components/AppID/model";
+import sendRequest from "../../common/SendRequest";
+import { Account } from "../model";
 
 export function createAccount(account: Account) {
   return sendRequest({

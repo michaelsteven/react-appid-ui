@@ -25,5 +25,12 @@
     "required": "Required",
     "patterninvalid": "Invalid pattern",
     "maxlengthexceeded": "Max length exceeded"
+  },
+  "profileform": {
+    "username": "Username",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "emailVerified": "Email Verified"
   }
 }

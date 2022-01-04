@@ -1,12 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router";
 import Cookie from "universal-cookie";
-import LoginPage from "../AppID/Login";
+import { LoginPage } from "../AppID";
 
 const useAuth = () => {
   const cookie = new Cookie();
-  const authToken = cookie.get("authToken");
-  return typeof authToken !== "undefined" ? true : false;
+  const refreshToken = cookie.get("refresh_token");
+  return typeof refreshToken !== "undefined" ? true : false;
 };
 
 const ProtectedRoutes = () => {
