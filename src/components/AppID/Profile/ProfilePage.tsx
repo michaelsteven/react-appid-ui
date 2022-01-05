@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Cookies from "universal-cookie";
 import { UserProfile } from "../model";
 import jwt from "jwt-decode";
+import useAuth from "../../AppID/hooks/useAuth";
 
 export function ProfilePage() {
   const emptyUser = {
@@ -21,11 +21,14 @@ export function ProfilePage() {
   };
   const { t } = useTranslation("appid");
   const [userProfile, setUserProfile] = useState<UserProfile>(emptyUser);
-  const cookies = new Cookies();
+  const { auth } = useAuth();
 
   const decodeIdentityToken = (): UserProfile => {
-    const idToken = cookies.get("id_token");
-    return idToken ? jwt<UserProfile>(idToken) : emptyUser;
+    if (auth) {
+      const { id_token: idToken } = auth;
+      return idToken ? jwt<UserProfile>(idToken) : emptyUser;
+    }
+    return emptyUser;
   };
 
   useEffect(() => {

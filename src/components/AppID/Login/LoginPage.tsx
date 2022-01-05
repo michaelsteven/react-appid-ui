@@ -5,6 +5,7 @@ import ErrorDisplay from "../../common/ErrorDisplay";
 import { Credentials } from "../model";
 import LoginForm from "./LoginForm";
 import sendRequest from "../../common/SendRequest";
+import useAuth from "../hooks/useAuth";
 
 export function login(credentials: Credentials) {
   return sendRequest({
@@ -16,6 +17,7 @@ export function login(credentials: Credentials) {
 }
 
 export function LoginPage() {
+  const { setAuth } = useAuth();
   const [error, setError] = useState<unknown>();
   const { t } = useTranslation("appid");
   const navigate = useNavigate();
@@ -25,7 +27,8 @@ export function LoginPage() {
       login(credentials)
         .then(async (response) => {
           if (response && response.status >= 200 && response.status < 300) {
-            await response.json();
+            const json = await response.json();
+            setAuth(json);
             navigate("/");
             window.location.reload();
           } else {
