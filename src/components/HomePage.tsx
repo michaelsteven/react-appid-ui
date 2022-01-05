@@ -1,8 +1,12 @@
 import React from "react";
-//import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 export default function HomePage() {
-  //const { t } = useTranslation();
-
-  return <div className="page">Please select a menu item from the upper left to begin</div>;
+  const { t } = useTranslation("pages");
+  return (
+    <div className="page">
+      <div className="title">{t("homepage.title")}</div>
+      <div>{t("homepage.instructions")}</div>
+    </div>
+  );
 }
