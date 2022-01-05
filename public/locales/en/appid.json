@@ -3,7 +3,14 @@
     "page_title": "Sign Up"
   },
   "login": {
-    "page_title": "Log in"
+    "page_title": "Log in",
+    "forgotpassword": "Forgot Password",
+    "createaccount": "Create an Account"
+  },
+  "forgotpassword": {
+    "page_title": "Forgot Password",
+    "instructions": "Enter your email address and we will email a link to reset your password.",
+    "resetemailsent": "An email has been sent with instructions on how to reset your password"
   },
   "signupform": {
     "firstname": "First Name",
@@ -32,5 +39,12 @@
     "lastName": "Last Name",
     "email": "Email",
     "emailVerified": "Email Verified"
+  },
+  "forgotpasswordform": {
+    "email": "Email",
+    "submit": "Submit",
+    "required": "Required",
+    "patterninvalid": "Invalid pattern",
+    "maxlengthexceeded": "Max length exceeded"
   }
 }

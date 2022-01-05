@@ -4,7 +4,16 @@ import { useTranslation } from "react-i18next";
 import ErrorDisplay from "../../common/ErrorDisplay";
 import { Credentials } from "../model";
 import LoginForm from "./LoginForm";
-import { login } from "./LoginApi";
+import sendRequest from "../../common/SendRequest";
+
+export function login(credentials: Credentials) {
+  return sendRequest({
+    url: "/api/v1/appid/login",
+    method: "POST",
+    credentials: "same-origin",
+    body: JSON.stringify(credentials),
+  });
+}
 
 export function LoginPage() {
   const [error, setError] = useState<unknown>();
@@ -20,10 +29,7 @@ export function LoginPage() {
             navigate("/");
             window.location.reload();
           } else {
-            const json = await response.json();
-            console.log(json);
-            console.log(response);
-            const { message } = json;
+            const { message } = await response.json();
             setError(message);
           }
         })
@@ -42,10 +48,10 @@ export function LoginPage() {
           <LoginForm onSubmit={handleSubmit}></LoginForm>
           <ErrorDisplay error={error} />
           <div>
-            <Link to="/lostpassword">Forgot Password</Link>
+            <Link to="/lostpassword">{t("login.forgotpassword")}</Link>
           </div>
           <div>
-            <Link to="/signup">Create an Account</Link>
+            <Link to="/signup">{t("login.createaccount")}</Link>
           </div>
         </div>
       </div>

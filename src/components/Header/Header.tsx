@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import Cookies from "universal-cookie";
 import ProfileMenu from "../Navigation/ProfileMenu";
 import HamburgerMenu from "../Navigation/HamburgerMenu";
+import LanguageSelector from "./LanguageSelector";
 
 export default function Header() {
   const { t } = useTranslation();
@@ -25,7 +26,10 @@ export default function Header() {
       <div className="items" data-testid="component-header-upper-div">
         <HamburgerMenu />
         <Link to={"/"}>{t("app_name")}</Link>
-        {idToken ? <ProfileMenu onLogoutClick={handleLogoutClick} /> : <div></div>}
+        <div className="left-items">
+          <LanguageSelector />
+          {idToken ? <ProfileMenu onLogoutClick={handleLogoutClick} /> : <div></div>}
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,22 @@
 import React, { useState } from "react";
+import i18next from "i18next";
 import { useTranslation } from "react-i18next";
+import sendRequest from "../../common/SendRequest";
 import ErrorDisplay from "../../common/ErrorDisplay";
 import AccountForm from "./SignupForm";
 import { Account } from "../model";
-import { createAccount } from "./CreateAccountApi";
+
+export function createAccount(account: Account) {
+  return sendRequest({
+    url: "/api/v1/appid/signup",
+    method: "POST",
+    body: JSON.stringify(account),
+    headers: {
+      "Content-Type": "application/json",
+      "Accept-Language": i18next.language,
+    },
+  });
+}
 
 export function SignupPage() {
   const [error, setError] = useState<unknown>();
