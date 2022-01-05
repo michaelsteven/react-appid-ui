@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import sendRequest from "../../common/SendRequest";
@@ -21,6 +22,7 @@ export function createAccount(account: Account) {
 export function SignupPage() {
   const [error, setError] = useState<unknown>();
   const { t } = useTranslation("appid");
+  const navigate = useNavigate();
 
   const handleSubmit = (
     account: Account & {
@@ -29,15 +31,19 @@ export function SignupPage() {
   ) => {
     if (account) {
       delete account.reenterpassword;
-      alert(JSON.stringify(account));
       createAccount(account)
-        .then((res) => {
-          console.log(res);
-          // TODO: move to the next page
+        .then(async (response) => {
+          if (response && response.status >= 200 && response.status < 300) {
+            await response.json();
+            navigate("/");
+            window.location.reload();
+          } else {
+            const { message } = await response.json();
+            setError(message);
+          }
         })
         .catch((error) => {
           setError(error.error);
-          console.log(error);
         });
     }
   };

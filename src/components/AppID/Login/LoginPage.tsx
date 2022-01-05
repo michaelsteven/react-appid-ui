@@ -35,7 +35,6 @@ export function LoginPage() {
         })
         .catch((error: any) => {
           setError(error);
-          console.log(error);
         });
     }
   };
