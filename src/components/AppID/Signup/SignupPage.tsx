@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import sendRequest from "../../common/SendRequest";
@@ -20,6 +20,7 @@ export function createAccount(account: Account) {
 }
 
 export function SignupPage() {
+  const [showForm, setShowForm] = useState<boolean>(true);
   const [error, setError] = useState<unknown>();
   const { t } = useTranslation("appid");
   const navigate = useNavigate();
@@ -33,10 +34,9 @@ export function SignupPage() {
       delete account.reenterpassword;
       createAccount(account)
         .then(async (response) => {
-          if (response && response.status >= 200 && response.status < 300) {
-            await response.json();
-            navigate("/");
-            window.location.reload();
+          if (response.ok) {
+            const json = await response.json();
+            json.status === "PENDING" ? setShowForm(false) : navigate("/");
           } else {
             const { message } = await response.json();
             setError(message);
@@ -53,8 +53,19 @@ export function SignupPage() {
       <div>
         <div>
           <div className="title">{t("signup.page_title")}</div>
-          <AccountForm onSubmit={handleSubmit}></AccountForm>
-          <ErrorDisplay error={error} />
+          {showForm ? (
+            <>
+              <AccountForm onSubmit={handleSubmit} />
+              <ErrorDisplay error={error} />
+            </>
+          ) : (
+            <>
+              <div>
+                A confirmation email has been sent. Please confirm your email address and log in.
+              </div>
+              <Link to="/login">{t("signup.login")}</Link>
+            </>
+          )}
         </div>
       </div>
     </div>

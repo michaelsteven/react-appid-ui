@@ -1,6 +1,8 @@
 {
   "signup": {
-    "page_title": "Sign Up"
+    "page_title": "Sign Up",
+    "pending": "A confirmation email has been sent. Please confirm your email address and log in.", 
+    "login": "Log in"
   },
   "login": {
     "page_title": "Log in",

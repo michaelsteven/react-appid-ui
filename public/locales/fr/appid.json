@@ -1,6 +1,8 @@
 {
   "signup": {
-    "page_title": "S'inscrire"
+    "page_title": "S'inscrire",
+    "pending": "Un e-mail de confirmation a été envoyé. Veuillez confirmer votre adresse e-mail et vous connecter.", 
+    "login": "Connexion"
   },
   "login": {
     "page_title": "Connexion",
