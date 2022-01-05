@@ -14,14 +14,13 @@ type FormData = Account & {
 
 export default function SignupForm(props: SignupFormProps) {
   const { t } = useTranslation("appid");
-
+  const { onSubmit } = props;
   const {
     getValues,
     register,
     handleSubmit,
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: "onChange" });
-  const { onSubmit } = props;
 
   return (
     <form

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import sendRequest from "../../common/SendRequest";
 import ErrorDisplay from "../../common/ErrorDisplay";
@@ -12,10 +11,6 @@ export function createAccount(account: Account) {
     url: "/api/v1/appid/signup",
     method: "POST",
     body: JSON.stringify(account),
-    headers: {
-      "Content-Type": "application/json",
-      "Accept-Language": i18next.language,
-    },
   });
 }
 
@@ -60,9 +55,7 @@ export function SignupPage() {
             </>
           ) : (
             <>
-              <div>
-                A confirmation email has been sent. Please confirm your email address and log in.
-              </div>
+              <div>{t("signup.pending")}</div>
               <Link to="/login">{t("signup.login")}</Link>
             </>
           )}

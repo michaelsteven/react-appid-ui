@@ -1,26 +1,15 @@
 import React, { useState } from "react";
-import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import ErrorDisplay from "../../common/ErrorDisplay";
 import sendRequest from "../../common/SendRequest";
 import ForgotPasswordForm, { FormData } from "./ForgotPasswordForm";
 
 const forgotPassword = async (username: string) => {
-  let response;
-  try {
-    return await sendRequest({
-      url: "/api/v1/appid/forgotpwd",
-      method: "POST",
-      body: JSON.stringify({ username: username }),
-      headers: {
-        "Content-Type": "application/json",
-        "Accept-Language": i18next.language,
-      },
-    });
-  } catch (error) {
-    console.log(response);
-    console.log("fetching the current user did not execute properly.");
-  }
+  return await sendRequest({
+    url: "/api/v1/appid/forgotpwd",
+    method: "POST",
+    body: JSON.stringify({ username: username }),
+  });
 };
 
 export function ForgotPasswordPage() {
