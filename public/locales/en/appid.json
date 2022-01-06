@@ -14,6 +14,9 @@
     "instructions": "Enter your email address and we will email a link to reset your password.",
     "resetemailsent": "An email has been sent with instructions on how to reset your password"
   },
+  "resetpassword": {
+    "page_title": "Reset Password"
+  },
   "signupform": {
     "firstname": "First Name",
     "lastname": "Last Name",

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./Header";
 import HomePage from "./HomePage";
-import { SignupPage, LoginPage, ForgotPasswordPage, ProfilePage } from "./AppID";
+import { SignupPage, LoginPage, ForgotPasswordPage, ProfilePage, ResetPasswordPage } from "./AppID";
 import ProtectedRoutes from "./common/ProtectedRoutes";
 function Head() {
   const { i18n, t } = useTranslation();
@@ -27,6 +27,7 @@ function DefaultSwitch() {
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/lostpassword" element={<ForgotPasswordPage />} />
+      <Route path="/resetpassword" element={<ResetPasswordPage />} />
       <Route path="*" element={<Navigate to="/" />} />
       <Route element={<ProtectedRoutes />}>
         <Route path="/" element={<HomePage />} />
