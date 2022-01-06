@@ -1,0 +1,52 @@
+{
+  "signup": {
+    "page_title": "S'inscrire",
+    "pending": "Un e-mail de confirmation a été envoyé. Veuillez confirmer votre adresse e-mail et vous connecter.", 
+    "login": "Connexion"
+  },
+  "login": {
+    "page_title": "Connexion",
+    "forgotpassword": "Mot de passe oublié",
+    "createaccount": "Créer un compte"
+  },
+  "forgotpassword": {
+    "page_title": "Mot de passe oublié",
+    "instructions": "Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+    "resetemailsent": "Un e-mail a été envoyé avec des instructions sur la façon de réinitialiser votre mot de passe."
+  },
+  "signupform": {
+    "firstname": "Prénom",
+    "lastname": "Nom de famille",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "reenterpassword": "Entrez à nouveau le mot de passe",
+    "submit": "Soumettre",
+    "required": "Obligatoire",
+    "underminlength": "Doit comporter au moins 8 caractères",
+    "maxlengthexceeded": "Longueur max dépassée",
+    "passwordmatchinvalid": "Le mot de passe ne correspond pas",
+    "patterninvalid": "Modèle non valide"
+  },
+  "loginform": {
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "submit": "Soumettre",
+    "required": "Obligatoire",
+    "patterninvalid": "Modèle non valide",
+    "maxlengthexceeded": "Longueur max dépassée"
+  },
+  "profileform": {
+    "username": "Nom d'utilisateur",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "email": "E-mail",
+    "emailVerified": "Email verifié"
+  },
+  "forgotpasswordform": {
+    "email": "E-mail",
+    "submit": "Soumettre",
+    "required": "Obligatoire",
+    "patterninvalid": "Modèle non valide",
+    "maxlengthexceeded": "Longueur max dépassée"
+  }
+}

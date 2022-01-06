@@ -35,14 +35,14 @@ const LanguageSelector = () => {
           </div>
           <div
             onClick={(e) => {
-              changeLanguage(e, "fr");
+              changeLanguage(e, "fr_FR");
             }}
           >
             <input
               type="radio"
               name="language"
               onChange={() => {}}
-              checked={i18n.resolvedLanguage === "fr"}
+              checked={i18n.resolvedLanguage === "fr_FR"}
             />{" "}
             Français
           </div>

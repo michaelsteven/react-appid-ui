@@ -22,5 +22,5 @@ i18n
     cache: {
       enabled: true,
     },
-    load: "languageOnly",
+    // load: "languageOnly",
   });
