@@ -15,7 +15,9 @@
     "resetemailsent": "An email has been sent with instructions on how to reset your password"
   },
   "resetpassword": {
-    "page_title": "Reset Password"
+    "page_title": "Reset Password",
+    "success": "Your password has been changed. Click the log in button below to use your new password.",
+    "login": "Log in"
   },
   "signupform": {
     "firstname": "First Name",
@@ -51,5 +53,15 @@
     "required": "Required",
     "patterninvalid": "Invalid pattern",
     "maxlengthexceeded": "Max length exceeded"
+  },
+  "resetpasswordform": {
+    "password": "Password",
+    "reenterpassword": "Re-enter Password",
+    "submit": "Submit",
+    "required": "Required",
+    "underminlength": "Must be at least 8 characters",
+    "maxlengthexceeded": "Max length exceeded",
+    "passwordmatchinvalid": "Password does not match",
+    "patterninvalid": "Invalid pattern"
   }
 }
