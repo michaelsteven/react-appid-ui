@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import ErrorDisplay from "../../common/ErrorDisplay";
 import { Credentials } from "../model";
 import LoginForm from "./LoginForm";
-import sendRequest from "../../common/SendRequest";
+import { sendRequest } from "../../common/SendRequest";
 import useAuth from "../hooks/useAuth";
 
 export function login(credentials: Credentials) {

@@ -1,31 +1,19 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ErrorDisplay from "./common/ErrorDisplay";
-import sendRequest from "./common/SendRequest";
-import useAuth from "./AppID/hooks/useAuth";
+import { sendRequestWithAuth } from "./common/SendRequest";
 
 export default function HomePage() {
   const { t } = useTranslation("pages");
   const [error, setError] = useState<unknown>();
-  const { auth } = useAuth();
 
   const handleClick = async () => {
     setError(""); // clears past errors
-    // TODO centralize logic for getting access token
-    // TODO code the renewing of the access token from the refresh token if it is expired
-    const { access_token: accessToken } = auth;
-    const response = await sendRequest({
-      url: "/api/v1/sample/sayhello",
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-    if (response.ok) {
-      alert(JSON.stringify(await response.json()));
-    } else {
-      setError(response.statusText);
-    }
+    sendRequestWithAuth({ url: "/api/v1/sample/sayhello", method: "GET" }).then(
+      async (response) => {
+        response.ok ? alert(JSON.stringify(await response.json())) : setError(response.statusText);
+      }
+    );
   };
 
   return (

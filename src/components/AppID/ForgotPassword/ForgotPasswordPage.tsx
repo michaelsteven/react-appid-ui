@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ErrorDisplay from "../../common/ErrorDisplay";
-import sendRequest from "../../common/SendRequest";
+import { sendRequest } from "../../common/SendRequest";
 import ForgotPasswordForm, { FormData } from "./ForgotPasswordForm";
 
 const forgotPassword = async (username: string) => {
