@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ErrorDisplay from "../../common/ErrorDisplay";
-import { Credentials } from "../model";
 import ResetPasswordForm from "./ResetPasswordForm";
 import sendRequest from "../../common/SendRequest";
 
@@ -32,11 +31,11 @@ import sendRequest from "../../common/SendRequest";
                               if success=true an API call to ChangePassword is performed
 */
 
-export function resetPassword(credentials: Credentials, context: string) {
+export function resetPassword(newPassword: string, context: string) {
   return sendRequest({
     url: "/api/v1/appid/forgotpwd/reset",
     method: "POST",
-    body: JSON.stringify({ credentials: credentials, context: context }),
+    body: JSON.stringify({ newPassword: newPassword, context: context }),
   });
 }
 
@@ -51,15 +50,11 @@ export function ResetPasswordPage() {
   const [error, setError] = useState<unknown>();
   const { t } = useTranslation("appid");
 
-  const handleSubmit = (
-    account: Credentials & {
-      reenterpassword?: string;
-    }
-  ) => {
-    if (account) {
-      delete account.reenterpassword;
+  const handleSubmit = (payload: { newPassword: string; reenterpassword?: string }) => {
+    if (payload) {
+      const { newPassword } = payload;
       const context = getContext();
-      resetPassword(account, context)
+      resetPassword(newPassword, context)
         .then(async (response) => {
           if (response.ok) {
             // const json = await response.json();

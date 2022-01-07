@@ -8,7 +8,7 @@ type LoginFormProps = {
 };
 
 type FormData = {
-  password: string;
+  newPassword: string;
   reenterPassword: string;
 };
 
@@ -29,13 +29,13 @@ export default function ResetPasswordForm(props: LoginFormProps) {
     >
       <div className="row">
         <label>{t("resetpasswordform.password")}</label>
-        {errors.password && <span>{errors.password.message}</span>}
-        {errors.password && errors.password.type === "maxLength" && (
+        {errors.newPassword && <span>{errors.newPassword.message}</span>}
+        {errors.newPassword && errors.newPassword.type === "maxLength" && (
           <span>{t("resetpasswordform.maxlengthexceeded")}</span>
         )}
         <input
           type="password"
-          {...register("password", {
+          {...register("newPassword", {
             required: {
               value: true,
               message: t("resetpasswordform.required"),
@@ -53,15 +53,15 @@ export default function ResetPasswordForm(props: LoginFormProps) {
       </div>
       <div className="row">
         <label>{t("resetpasswordform.reenterpassword")}</label>
-        {errors.reenterpassword && errors.reenterpassword.type === "required" && (
+        {errors.reenterPassword && errors.reenterPassword.type === "required" && (
           <span>{t("resetpasswordform.required")}</span>
         )}
-        {errors.reenterpassword && <span>{t("resetpasswordform.passwordmatchinvalid")}</span>}
+        {errors.reenterPassword && <span>{t("resetpasswordform.passwordmatchinvalid")}</span>}
         <input
           type="password"
-          {...register("reenterpassword", {
+          {...register("reenterPassword", {
             required: true,
-            validate: (value) => value === getValues("password"),
+            validate: (value) => value === getValues("newPassword"),
           })}
         />
       </div>
