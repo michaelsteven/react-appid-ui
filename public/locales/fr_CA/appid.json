@@ -19,6 +19,9 @@
     "success": "Votre mot de passe a été changé. Cliquez sur le bouton de connexion ci-dessous pour utiliser votre nouveau mot de passe.",
     "login": "Connexion"
   },
+  "changepassword": {
+    "page_title": "Changer le mot de passe"
+  },
   "signupform": {
     "firstname": "Prénom",
     "lastname": "Nom de famille",

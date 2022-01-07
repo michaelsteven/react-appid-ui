@@ -18,7 +18,7 @@ import sendRequest from "../../common/SendRequest";
   will be added to the url.
 
   When this page is submitted, the context query parameter is used to 
-  get the reset password request from App ID by using the
+  get the reset password result from App ID by using the
    /forgot_password/confirmation_result API.
 
   Here is the flow:
@@ -28,14 +28,15 @@ import sendRequest from "../../common/SendRequest";
               browser goes to appid ->
                   appid redirect here with a context querystring ->
                       user submit this page which will call the api ->
-                          api validates context as valid and returns
+                          api validates context as valid and returns ->
+                              if success=true an API call to ChangePassword is performed
 */
 
 export function resetPassword(credentials: Credentials, context: string) {
   return sendRequest({
-    url: "/api/v1/appid/forgotpwd/confirmationresult?",
+    url: "/api/v1/appid/forgotpwd/reset",
     method: "POST",
-    body: JSON.stringify(credentials),
+    body: JSON.stringify({ credentials: credentials, context: context }),
   });
 }
 

@@ -4,11 +4,18 @@ import { useTranslation } from "react-i18next";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./Header";
 import HomePage from "./HomePage";
-import { SignupPage, LoginPage, ForgotPasswordPage, ProfilePage, ResetPasswordPage } from "./AppID";
 import ProtectedRoutes from "./common/ProtectedRoutes";
+import {
+  SignupPage,
+  LoginPage,
+  ForgotPasswordPage,
+  ProfilePage,
+  ResetPasswordPage,
+  ChangePasswordPage,
+} from "./AppID";
+
 function Head() {
   const { i18n, t } = useTranslation();
-
   return (
     <Helmet htmlAttributes={{ lang: i18n.language }}>
       <title>{t("app_name")}</title>
@@ -32,6 +39,7 @@ function DefaultSwitch() {
       <Route element={<ProtectedRoutes />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/changepassword" element={<ChangePasswordPage />} />
       </Route>
     </Routes>
   );

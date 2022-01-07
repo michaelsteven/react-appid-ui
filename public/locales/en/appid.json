@@ -19,6 +19,9 @@
     "success": "Your password has been changed. Click the log in button below to use your new password.",
     "login": "Log in"
   },
+  "changepassword": {
+    "page_title": "Change Password"
+  },
   "signupform": {
     "firstname": "First Name",
     "lastname": "Last Name",
