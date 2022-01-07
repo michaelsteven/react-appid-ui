@@ -20,7 +20,8 @@
     "login": "Log in"
   },
   "changepassword": {
-    "page_title": "Change Password"
+    "page_title": "Change Password",
+    "passwordchanged": "Your password has been changed"
   },
   "signupform": {
     "firstname": "First Name",
@@ -58,6 +59,16 @@
     "maxlengthexceeded": "Max length exceeded"
   },
   "resetpasswordform": {
+    "password": "Password",
+    "reenterpassword": "Re-enter Password",
+    "submit": "Submit",
+    "required": "Required",
+    "underminlength": "Must be at least 8 characters",
+    "maxlengthexceeded": "Max length exceeded",
+    "passwordmatchinvalid": "Password does not match",
+    "patterninvalid": "Invalid pattern"
+  },
+  "changepasswordform": {
     "password": "Password",
     "reenterpassword": "Re-enter Password",
     "submit": "Submit",

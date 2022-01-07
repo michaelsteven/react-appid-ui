@@ -12,7 +12,7 @@ type FormData = {
   reenterPassword: string;
 };
 
-export default function ResetPasswordForm(props: FormProps) {
+export default function ChangePasswordForm(props: FormProps) {
   const { t } = useTranslation("appid");
   const {
     getValues,
@@ -24,39 +24,39 @@ export default function ResetPasswordForm(props: FormProps) {
 
   return (
     <form
-      data-testid="component-resetpasswordform-div"
+      data-testid="component-changepasswordform-div"
       onSubmit={handleSubmit((data: FormData) => onSubmit(data))}
     >
       <div className="row">
-        <label>{t("resetpasswordform.password")}</label>
+        <label>{t("changepasswordform.password")}</label>
         {errors.newPassword && <span>{errors.newPassword.message}</span>}
         {errors.newPassword && errors.newPassword.type === "maxLength" && (
-          <span>{t("resetpasswordform.maxlengthexceeded")}</span>
+          <span>{t("changepasswordform.maxlengthexceeded")}</span>
         )}
         <input
           type="password"
           {...register("newPassword", {
             required: {
               value: true,
-              message: t("resetpasswordform.required"),
+              message: t("changepasswordform.required"),
             },
             minLength: {
               value: 8,
-              message: t("resetpasswordform.underminlength"),
+              message: t("changepasswordform.underminlength"),
             },
             maxLength: {
               value: 100,
-              message: t("resetpasswordform.maxlengthexceeded"),
+              message: t("changepasswordform.maxlengthexceeded"),
             },
           })}
         />
       </div>
       <div className="row">
-        <label>{t("resetpasswordform.reenterpassword")}</label>
+        <label>{t("changepasswordform.reenterpassword")}</label>
         {errors.reenterPassword && errors.reenterPassword.type === "required" && (
-          <span>{t("resetpasswordform.required")}</span>
+          <span>{t("changepasswordform.required")}</span>
         )}
-        {errors.reenterPassword && <span>{t("resetpasswordform.passwordmatchinvalid")}</span>}
+        {errors.reenterPassword && <span>{t("changepasswordform.passwordmatchinvalid")}</span>}
         <input
           type="password"
           {...register("reenterPassword", {
@@ -66,7 +66,7 @@ export default function ResetPasswordForm(props: FormProps) {
         />
       </div>
       <button type="submit" disabled={!isDirty || !isValid}>
-        {t("resetpasswordform.submit")}
+        {t("changepasswordform.submit")}
       </button>
     </form>
   );

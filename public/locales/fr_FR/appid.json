@@ -20,7 +20,8 @@
     "login": "Connexion"
   },
   "changepassword": {
-    "page_title": "Changer le mot de passe"
+    "page_title": "Changer le mot de passe",
+    "passwordchanged": "Votre mot de passe a été changé"
   },
   "signupform": {
     "firstname": "Prénom",
@@ -58,6 +59,16 @@
     "maxlengthexceeded": "Longueur max dépassée"
   },
   "resetpasswordform": {
+    "password": "Mot de passe",
+    "reenterpassword": "Entrez à nouveau le mot de passe",
+    "submit": "Soumettre",
+    "required": "Obligatoire",
+    "underminlength": "Doit comporter au moins 8 caractères",
+    "maxlengthexceeded": "Longueur max dépassée",
+    "passwordmatchinvalid": "Le mot de passe ne correspond pas",
+    "patterninvalid": "Modèle non valide"
+  },
+  "changepasswordform": {
     "password": "Mot de passe",
     "reenterpassword": "Entrez à nouveau le mot de passe",
     "submit": "Soumettre",

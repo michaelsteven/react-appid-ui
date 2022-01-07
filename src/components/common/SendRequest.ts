@@ -17,5 +17,6 @@ export default async function sendRequest(options: SendRequestOptions) {
 
   const defaults = { headers: _headers };
   const extendedOptions = Object.assign({}, defaults, options);
+  alert(JSON.stringify(extendedOptions));
   return fetch(extendedOptions.url, extendedOptions);
 }
