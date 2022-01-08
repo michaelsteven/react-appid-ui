@@ -12,6 +12,7 @@ import {
   ProfilePage,
   ResetPasswordPage,
   ChangePasswordPage,
+  UserManagementPage,
 } from "./AppID";
 
 function Head() {
@@ -40,6 +41,9 @@ function DefaultSwitch() {
         <Route path="/" element={<HomePage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/changepassword" element={<ChangePasswordPage />} />
+      </Route>
+      <Route element={<ProtectedRoutes oneOfRoles={["user_management"]} />}>
+        <Route path="/usermanagement" element={<UserManagementPage />} />
       </Route>
     </Routes>
   );

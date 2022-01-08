@@ -23,6 +23,9 @@
     "page_title": "Changer le mot de passe",
     "passwordchanged": "votre mot de passe a été changé"
   },
+  "usermanagement": {
+    "page_title": "Gestion des utilisateurs"
+  },
   "signupform": {
     "firstname": "Prénom",
     "lastname": "Nom de famille",

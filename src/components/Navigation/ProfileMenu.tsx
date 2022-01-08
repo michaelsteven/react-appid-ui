@@ -49,6 +49,14 @@ export default function MessagesMenu(props: MessagesMenuProps) {
         <MenuItem
           {...menu}
           className="menuItem"
+          aria-label={t("profile.menu.items.changepassword")}
+          onClick={() => handleItemClick("/changepassword")}
+        >
+          {t("profile.menu.items.changepassword")}
+        </MenuItem>
+        <MenuItem
+          {...menu}
+          className="menuItem"
           aria-label={t("profile.menu.items.logout")}
           onClick={onLogoutClick}
         >

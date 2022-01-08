@@ -1,7 +1,7 @@
 {
   "signup": {
     "page_title": "Sign Up",
-    "pending": "A confirmation email has been sent. Please confirm your email address and log in.", 
+    "pending": "A confirmation email has been sent. Please confirm your email address and log in.",
     "login": "Log in"
   },
   "login": {
@@ -22,6 +22,9 @@
   "changepassword": {
     "page_title": "Change Password",
     "passwordchanged": "Your password has been changed"
+  },
+  "usermanagement": {
+    "page_title": "User Management"
   },
   "signupform": {
     "firstname": "First Name",

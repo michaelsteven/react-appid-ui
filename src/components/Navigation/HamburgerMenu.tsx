@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, MenuItem, MenuButton, useMenuState } from "reakit/Menu";
 import { useTranslation } from "react-i18next";
+import { containsScope } from "../common/TokenUtils";
 
 export default function HamburgerMenu() {
   const menu = useMenuState();
   const { t } = useTranslation("navigation");
   const navigate = useNavigate();
+  const [showUserManagement, setShowUserManagement] = useState<boolean>(false);
+
+  useEffect(() => {
+    const isUserManager = containsScope("user_management");
+    setShowUserManagement(isUserManager);
+  }, []);
 
   const handleItemClick = (path: string): void => {
     menu.hide();
@@ -58,6 +65,19 @@ export default function HamburgerMenu() {
         >
           {t("hamburger.menu.items.item3")}
         </MenuItem>
+        {/* Admin Menu Item */}
+        {showUserManagement ? (
+          <MenuItem
+            className="menuItem"
+            onClick={() => handleItemClick("/usermanagement")}
+            aria-label={t("hamburger.menu.items.usermanagement")}
+            {...menu}
+          >
+            {t("hamburger.menu.items.usermanagement")}
+          </MenuItem>
+        ) : (
+          <></>
+        )}
       </Menu>
     </>
   );
