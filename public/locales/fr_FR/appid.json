@@ -4,6 +4,11 @@
     "pending": "Un e-mail de confirmation a été envoyé. Veuillez confirmer votre adresse e-mail et vous connecter.", 
     "login": "Connexion"
   },
+  "signupthankyou": {
+    "page_title": "Merci",
+    "message": "Votre mail a été vérifié.  Merci de vous être inscrit!",
+    "login": "Connexion"
+  },
   "login": {
     "page_title": "Connexion",
     "forgotpassword": "Mot de passe oublié",

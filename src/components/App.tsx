@@ -7,6 +7,7 @@ import HomePage from "./HomePage";
 import ProtectedRoutes from "./common/ProtectedRoutes";
 import {
   SignupPage,
+  SignupThankYouPage,
   LoginPage,
   ForgotPasswordPage,
   ProfilePage,
@@ -33,6 +34,7 @@ function DefaultSwitch() {
   return (
     <Routes>
       <Route path="/signup" element={<SignupPage />} />
+      <Route path="/signupthankyou" element={<SignupThankYouPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/lostpassword" element={<ForgotPasswordPage />} />
       <Route path="/resetpassword" element={<ResetPasswordPage />} />

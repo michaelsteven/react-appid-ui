@@ -4,6 +4,11 @@
     "pending": "A confirmation email has been sent. Please confirm your email address and log in.",
     "login": "Log in"
   },
+  "signupthankyou": {
+    "page_title": "Thank You",
+    "message": "Your email has been verified.  Thank you for signing up!",
+    "login": "Log in"
+  },
   "login": {
     "page_title": "Log in",
     "forgotpassword": "Forgot Password",
