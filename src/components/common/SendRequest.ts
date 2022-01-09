@@ -1,5 +1,5 @@
 import i18next from "i18next";
-import { getAccessToken } from "./TokenUtils";
+import { getEncodedAccessToken } from "./TokenUtils";
 
 type SendRequestOptions = {
   url: string;
@@ -24,7 +24,9 @@ export async function sendRequest(options: SendRequestOptions) {
 }
 
 export const sendRequestWithAuth = async (options: SendRequestOptions) => {
-  const token = getAccessToken();
+  const token = getEncodedAccessToken();
+  console.log(token);
+  console.log(JSON.stringify(token));
   const _headers = {
     Authorization: `Bearer ${token}`,
     "Content-Type": "application/json",

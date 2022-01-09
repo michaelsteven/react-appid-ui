@@ -1,7 +1,7 @@
 import jwtDecode from "jwt-decode";
 import { AccessToken } from "../AppID/model/AccessToken";
 
-export const getAccessToken = (): AccessToken => {
+export const getEncodedAccessToken = (): string => {
   const authToken = getAuthTokenFromStorage();
   const { access_token: accessToken, refresh_token: refreshToken } = authToken;
   if (isTokenExpired(accessToken)) {
@@ -13,7 +13,12 @@ export const getAccessToken = (): AccessToken => {
       // TODO get the refresh token and renew the access token
     }
   }
-  return jwtDecode<AccessToken>(accessToken);
+  return accessToken;
+};
+
+export const getAccessToken = (): AccessToken => {
+  const encodedAccessToken = getEncodedAccessToken();
+  return jwtDecode<AccessToken>(encodedAccessToken);
 };
 
 const getAuthTokenFromStorage = (): any => {
