@@ -1,5 +1,5 @@
 import i18next from "i18next";
-import { getEncodedAccessToken } from "./TokenUtils";
+import { getEncodedAccessToken } from "../AppID/common/tokenUtils";
 
 type SendRequestOptions = {
   url: string;
@@ -23,7 +23,7 @@ export const sendRequest = async (options: SendRequestOptions): Promise<Response
 };
 
 export const sendRequestWithAuth = async (options: SendRequestOptions): Promise<Response> => {
-  const token = getEncodedAccessToken();
+  const token = await getEncodedAccessToken();
   const authHeaders = Object.assign({}, getDefaultHeaders(), { Authorization: `Bearer ${token}` });
   const extendedOptions = Object.assign({}, { headers: authHeaders }, options);
   return fetch(extendedOptions.url, extendedOptions);

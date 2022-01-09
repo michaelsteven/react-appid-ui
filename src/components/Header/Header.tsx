@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import ProfileMenu from "../Navigation/ProfileMenu";
 import HamburgerMenu from "../Navigation/HamburgerMenu";
 import LanguageSelector from "./LanguageSelector";
-import useAuth from "../AppID/hooks/useAuth";
+import useAuth from "../AppID/common/useAuth";
 
 export default function Header() {
   const { auth, setAuth } = useAuth();

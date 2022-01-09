@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { UserProfile } from "../model";
 import jwt from "jwt-decode";
-import useAuth from "../../AppID/hooks/useAuth";
+import useAuth from "../common/useAuth";
 
 export function ProfilePage() {
   const emptyUser = {

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router";
-import { LoginPage } from "../AppID";
-import useAuth from "../AppID/hooks/useAuth";
-import { scopeHasOneOf, scopeHasAllOf } from "../common/TokenUtils";
+import { LoginPage } from "..";
+import useAuth from "./useAuth";
+import { scopeHasOneOf, scopeHasAllOf } from "./tokenUtils";
 
 type Props = {
   hasAllRoles?: Array<string>;
@@ -16,9 +16,13 @@ const ProtectedRoutes = (props: Props) => {
   if (auth) {
     if (typeof element === "undefined") {
       if (oneOfRoles) {
-        setElement(scopeHasOneOf(oneOfRoles) ? <Outlet /> : <LoginPage />);
+        scopeHasOneOf(oneOfRoles).then((result: boolean) => {
+          setElement(result ? <Outlet /> : <LoginPage />);
+        });
       } else if (hasAllRoles) {
-        setElement(scopeHasAllOf(hasAllRoles) ? <Outlet /> : <LoginPage />);
+        scopeHasAllOf(hasAllRoles).then((result: boolean) => {
+          setElement(result ? <Outlet /> : <LoginPage />);
+        });
       } else {
         return auth ? <Outlet /> : <LoginPage />;
       }

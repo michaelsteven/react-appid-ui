@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, MenuItem, MenuButton, useMenuState } from "reakit/Menu";
 import { useTranslation } from "react-i18next";
-import { containsScope } from "../common/TokenUtils";
+import { containsScope } from "../AppID/common/tokenUtils";
 
 export default function HamburgerMenu() {
   const menu = useMenuState();
@@ -11,8 +11,9 @@ export default function HamburgerMenu() {
   const [showUserManagement, setShowUserManagement] = useState<boolean>(false);
 
   useEffect(() => {
-    const isUserManager = containsScope("user_management");
-    setShowUserManagement(isUserManager);
+    containsScope("user_management").then((result: boolean) => {
+      setShowUserManagement(result);
+    });
   }, []);
 
   const handleItemClick = (path: string): void => {

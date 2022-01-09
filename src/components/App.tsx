@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./Header";
 import HomePage from "./HomePage";
-import ProtectedRoutes from "./common/ProtectedRoutes";
+import ProtectedRoutes from "./AppID/common/ProtectedRoutes";
 import {
   SignupPage,
   SignupThankYouPage,

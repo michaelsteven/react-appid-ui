@@ -5,7 +5,7 @@ import ErrorDisplay from "../../common/ErrorDisplay";
 import { Credentials } from "../model";
 import LoginForm from "./LoginForm";
 import { sendRequest } from "../../common/SendRequest";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../common/useAuth";
 
 export function login(credentials: Credentials) {
   return sendRequest({
