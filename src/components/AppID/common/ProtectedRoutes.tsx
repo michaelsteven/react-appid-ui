@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import { LoginPage } from "..";
 import useAuth from "./useAuth";
@@ -10,11 +10,12 @@ type Props = {
 };
 
 const ProtectedRoutes = (props: Props) => {
-  const [element, setElement] = useState<any>();
+  const [element, setElement] = useState<any>(<LoginPage />);
   const { hasAllRoles, oneOfRoles } = props;
   const { auth } = useAuth();
-  if (auth) {
-    if (typeof element === "undefined") {
+
+  useEffect(() => {
+    if (auth) {
       if (oneOfRoles) {
         scopeHasOneOf(oneOfRoles).then((result: boolean) => {
           setElement(result ? <Outlet /> : <LoginPage />);
@@ -24,12 +25,14 @@ const ProtectedRoutes = (props: Props) => {
           setElement(result ? <Outlet /> : <LoginPage />);
         });
       } else {
-        return auth ? <Outlet /> : <LoginPage />;
+        setElement(<Outlet />);
       }
+    } else {
+      setElement(<LoginPage />);
     }
-    return element;
-  }
-  return auth ? <Outlet /> : <LoginPage />;
+  }, [auth, hasAllRoles, oneOfRoles]);
+
+  return <>{element}</>;
 };
 
 export default ProtectedRoutes;
