@@ -9,32 +9,22 @@ type SendRequestOptions = {
   credentials?: any;
 };
 
-export async function sendRequest(options: SendRequestOptions) {
-  const _headers = {
+const getDefaultHeaders = (): {} => {
+  return {
     "Content-Type": "application/json",
     "Cache-Control": "No-Store",
     "Accept-Language": i18next.language,
   };
+};
 
-  const defaults = { headers: _headers };
-  console.log(JSON.stringify(_headers));
-  const extendedOptions = Object.assign({}, defaults, options);
-  console.log(JSON.stringify(extendedOptions));
+export const sendRequest = async (options: SendRequestOptions): Promise<Response> => {
+  const extendedOptions = Object.assign({}, { headers: getDefaultHeaders() }, options);
   return fetch(extendedOptions.url, extendedOptions);
-}
+};
 
-export const sendRequestWithAuth = async (options: SendRequestOptions) => {
+export const sendRequestWithAuth = async (options: SendRequestOptions): Promise<Response> => {
   const token = getEncodedAccessToken();
-  console.log(token);
-  console.log(JSON.stringify(token));
-  const _headers = {
-    Authorization: `Bearer ${token}`,
-    "Content-Type": "application/json",
-    "Cache-Control": "No-Store",
-    "Accept-Language": i18next.language,
-  };
-
-  const defaults = { headers: _headers };
-  const extendedOptions = Object.assign({}, defaults, options);
+  const authHeaders = Object.assign({}, getDefaultHeaders(), { Authorization: `Bearer ${token}` });
+  const extendedOptions = Object.assign({}, { headers: authHeaders }, options);
   return fetch(extendedOptions.url, extendedOptions);
 };
