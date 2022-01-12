@@ -9,7 +9,9 @@ React UI to demonstrate localized AppID signup, change password, login, and prof
 
 The Kubernetes AppID OAuth Proxy "out of the box" experience is great at protecting applications stored in kubernetes because it manages everything for you. However, it's screens aren't localized.  To "bring your own" AppID pages, you can't use the Oauth Proxy to protect your login pages, and if a user were to try and access a protected page then they would be directed to login to the non-localizable pages. 
 
-In this single-page application example we do not leverage the appid-clientsdk. It doesent appear that localized screens could be injected in place of the default ones if we used it.  If this is incorrect and it does support injecting your own localized pages please let the author know.   Additionally, for this example we are using NGinx instead of Node for presenting the UI and existing examples leverage Node.
+In this single-page application example we do not leverage the appid-clientsdk. It doesent appear that localized screens could be injected in place of the default ones if we used it.  If this is incorrect and it does support injecting your own localized pages please let the author know.   Additionally, for this example we are using NGinx instead of Node for presenting the UI and existing examples leverage Node.'
+
+Managing the Auth Flow is a larger responsibility than you may want to undertake. Having auth managed for you is one of the things that makes the OAuthProxy so nice. The other is the way it authenticates the cookie and injects the Auth Token into the header, making for a more secure and elegent solution.  Unfortuantely for now it looks like we have to manage the auth tokens ourselves when we want to use localized pages.
 
 **Runtime: NGinx instead of Node**: The compiled output from the typescript is hosted on a Nginx backend instead of a nodejs backend.  This makes a very light container (around 30mb uncompressed).  This also helps us make sure the server-side processing is only occuring at the API layer. That being said, for local develpment NPM/Yarn is used.
 
