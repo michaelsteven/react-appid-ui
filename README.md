@@ -11,13 +11,13 @@ The Kubernetes AppID OAuth Proxy "out of the box" experience is great at protect
 
 In this single-page application example we do not leverage the appid-clientsdk. It doesent appear that localized screens could be injected in place of the default ones if we used it.  If this is incorrect and it does support injecting your own localized pages please let the author know.   Additionally, for this example we are using NGinx instead of Node for presenting the UI and existing examples leverage Node.
 
-**Runtime: NGinx instead of Node**: The compiled output from the typescript is hosted on a Nginx backend instead of a nodejs backend.  This makes a very light container (around 30mb uncompressed).  This also helps us make sure the server-side processing is only occuring the APIs. That being said, for local develpment NPM/Yarn is used.
+**Runtime: NGinx instead of Node**: The compiled output from the typescript is hosted on a Nginx backend instead of a nodejs backend.  This makes a very light container (around 30mb uncompressed).  This also helps us make sure the server-side processing is only occuring at the API layer. That being said, for local develpment NPM/Yarn is used.
 
-**Location of NGinx's default.conf**: It not included in the Dockerfile, and instead intended to be mounted in at "/etc/nginx/conf.d/" by your Kubernetes deployment or Docker run command.  This allows us to store the config in the environment and not bundle it in the container. NGinx is not leveraged when you are developing locally. When developing locally, the "proxy" declaration in the application.json is used which will direct API calls to port 3001.
+**Location of NGinx's default.conf**: It is not included in the Dockerfile, and instead intended to be mounted in at "/etc/nginx/conf.d/" by your Kubernetes deployment or Docker run command.  This allows us to store the config in the environment, and not package it in the container. NGinx is not leveraged when you are developing locally. When developing locally, the "proxy" declaration in the application.json is used which will direct API calls to port 3001.
 
-**Code Organization**: The AppID related files are kept under "/src/components/AppID" to allow a developer to copy/paste this folder into their own react application.  When copying to your own application, there are a few other common and localizationfiles will need to go as well or be factored for your own implementation.
+**Code Organization**: AppID related files are kept under "/src/components/AppID" to allow a developer to copy/paste this folder into their own react application.  When copying to your own application, there are a few other common and localization files will need to go as well or be factored out for your own implementation.
 
-**Local Storage**: After a user has successfuly logged in, the authorization tokens are stored/retrieved from sessionStorage. This is a more modern way storage than using cookies.  You may wish to change the tokenUtils.ts file to use localStorage or cookies.
+**Session Storage**: After a user has successfuly logged in, the authorization tokens are stored/retrieved from sessionStorage. This is a more modern way storage than using cookies.  You may wish to change the tokenUtils.ts file to use localStorage or cookies.
 
 ## Docker Image
 Building:
