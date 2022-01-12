@@ -21,6 +21,12 @@ In this single-page application example we do not leverage the appid-clientsdk. 
 
 **Session Storage**: After a user has successfuly logged in, the authorization tokens are stored/retrieved from sessionStorage. This is a more modern way storage than using cookies.  You may wish to change the tokenUtils.ts file to use localStorage or cookies.
 
+## Interesting Things to See
+- the use of ProtectedRoutes in app.ts
+- the conditional display of the "User Management" menu item in HamburgerMenu.tsx
+- the useAuth hook in header.tsx to display the hamburger and profile menus only if the user is authenticated
+- using the refresh_token to get new tokens when the access_token is expired in tokenUtils.ts
+
 ## Docker Image
 Building:
 ```
