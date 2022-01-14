@@ -1,5 +1,5 @@
 import i18next from "i18next";
-import { getEncodedAccessToken } from "../AppID/common/tokenUtils";
+import { getAuthInfo } from "../AppID/common/authInfoUtils";
 
 type SendRequestOptions = {
   url: string;
@@ -23,8 +23,10 @@ export const sendRequest = async (options: SendRequestOptions): Promise<Response
 };
 
 export const sendRequestWithAuth = async (options: SendRequestOptions): Promise<Response> => {
-  const token = await getEncodedAccessToken();
-  const authHeaders = Object.assign({}, getDefaultHeaders(), { Authorization: `Bearer ${token}` });
-  const extendedOptions = Object.assign({}, { headers: authHeaders }, options);
-  return fetch(extendedOptions.url, extendedOptions);
+  const authInfo = await getAuthInfo();
+  if (authInfo) {
+    const extendedOptions = Object.assign({}, { headers: getDefaultHeaders() }, options);
+    return fetch(extendedOptions.url, extendedOptions);
+  }
+  return Promise.reject(new Error("Unable to obtain authorization info"));
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import { LoginPage } from "..";
 import useAuth from "./useAuth";
-import { scopeHasOneOf, scopeHasAllOf } from "./tokenUtils";
+import { scopeHasOneOf, scopeHasAllOf } from "./authInfoUtils";
 
 type Props = {
   hasAllRoles?: Array<string>;

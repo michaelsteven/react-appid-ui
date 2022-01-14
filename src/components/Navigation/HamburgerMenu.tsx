@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, MenuItem, MenuButton, useMenuState } from "reakit/Menu";
 import { useTranslation } from "react-i18next";
-import { containsScope } from "../AppID/common/tokenUtils";
+import { containsScope } from "../AppID/common/authInfoUtils";
 
 export default function HamburgerMenu() {
   const menu = useMenuState();

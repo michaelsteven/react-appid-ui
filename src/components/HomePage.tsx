@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ErrorDisplay from "./common/ErrorDisplay";
-import { sendRequestWithAuth } from "./common/SendRequest";
+import { sendRequest } from "./common/SendRequest";
 
 export default function HomePage() {
   const { t } = useTranslation("pages");
@@ -9,11 +9,9 @@ export default function HomePage() {
 
   const handleClick = async () => {
     setError(""); // clears past errors
-    sendRequestWithAuth({ url: "/api/v1/sample/sayhello", method: "GET" }).then(
-      async (response) => {
-        response.ok ? alert(JSON.stringify(await response.json())) : setError(response.statusText);
-      }
-    );
+    sendRequest({ url: "/api/v1/sample/sayhello", method: "GET" }).then(async (response) => {
+      response.ok ? alert(JSON.stringify(await response.json())) : setError(response.statusText);
+    });
   };
 
   return (
