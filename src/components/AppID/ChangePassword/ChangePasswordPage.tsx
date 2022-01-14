@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ErrorDisplay from "../../common/ErrorDisplay";
 import ChangePasswordForm from "./ChangePasswordForm";
-import { sendRequestWithAuth } from "../../common/SendRequest";
+import { sendRequestWithAuth } from "../../common/sendRequest";
 
 export function ChangePasswordPage() {
   const { t } = useTranslation("appid");

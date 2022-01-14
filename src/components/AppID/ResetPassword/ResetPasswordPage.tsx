@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ErrorDisplay from "../../common/ErrorDisplay";
 import ResetPasswordForm from "./ResetPasswordForm";
-import { sendRequest } from "../../common/SendRequest";
+import { sendRequest } from "../../common/sendRequest";
 
 /*
   This page is designed to be accessed after clicking an email link that

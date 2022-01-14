@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router";
-import { LoginPage } from "..";
 import useAuth from "./useAuth";
 import { scopeHasOneOf, scopeHasAllOf } from "./authInfoUtils";
+import { LoginPage } from "../Login";
 
 type Props = {
   hasAllRoles?: Array<string>;
@@ -32,7 +32,7 @@ const ProtectedRoutes = (props: Props) => {
     }
   }, [auth, hasAllRoles, oneOfRoles]);
 
-  return <>{element}</>;
+  return element;
 };
 
 export default ProtectedRoutes;

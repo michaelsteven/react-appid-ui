@@ -1,6 +1,6 @@
 import jwtDecode from "jwt-decode";
 import { AccessToken, AuthToken } from "../model";
-import { sendRequest } from "../../common/SendRequest";
+import { sendRequest } from "../../common/sendRequest";
 
 export const getEncodedAccessToken = async (): Promise<string> => {
   const authToken = getAuthTokenFromStorage();

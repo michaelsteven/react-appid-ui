@@ -1,4 +1,4 @@
-import { sendRequest } from "../../common/SendRequest";
+import { sendRequest } from "../../common/sendRequest";
 import { AuthInfo } from "../model/AuthInfo";
 
 export const getAuthInfo = async (): Promise<AuthInfo | undefined> => {
