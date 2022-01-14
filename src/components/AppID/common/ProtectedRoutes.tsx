@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Outlet } from "react-router";
 import useAuth from "./useAuth";
 import { scopeHasOneOf, scopeHasAllOf } from "./authInfoUtils";
@@ -14,7 +14,7 @@ const ProtectedRoutes = (props: Props) => {
   const { hasAllRoles, oneOfRoles } = props;
   const { auth } = useAuth();
 
-  useEffect(() => {
+  useMemo(() => {
     if (auth) {
       if (oneOfRoles) {
         scopeHasOneOf(oneOfRoles).then((result: boolean) => {
