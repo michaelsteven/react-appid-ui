@@ -110,3 +110,11 @@ const renewToken = async (): Promise<AuthInfo> => {
   sessionStorage.setItem("auth", JSON.stringify(json));
   return json;
 };
+
+export const logout = async (): Promise<void> => {
+  const options = {
+    url: "/api/v1/appid/logout",
+    method: "DELETE",
+  };
+  await sendRequest(options);
+};

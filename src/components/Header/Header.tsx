@@ -1,19 +1,19 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ProfileMenu from "../Navigation/ProfileMenu";
 import HamburgerMenu from "../Navigation/HamburgerMenu";
 import LanguageSelector from "./LanguageSelector";
 import useAuth from "../AppID/common/useAuth";
+import { logout } from "../AppID/common/authInfoUtils";
 
 export default function Header() {
   const { auth, setAuth } = useAuth();
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
-  const handleLogoutClick = () => {
+  const handleLogoutClick = async () => {
     setAuth(undefined);
-    navigate("/appid/logout");
+    await logout();
     window.location.reload();
   };
 
