@@ -19,7 +19,7 @@ In this single-page application example we do not leverage the appid-clientsdk. 
 
 **Code Organization**: AppID related files are kept under "/src/components/AppID" to allow a developer to copy/paste this folder into their own react application.  When copying to your own application, there are a few other common and localization files will need to go as well or be factored out for your own implementation.
 
-**Session Storage**: After a user has successfuly logged in, the authorization tokens are stored/retrieved from sessionStorage. This is a more modern way storage than using cookies.  You may wish to change the tokenUtils.ts file to use localStorage or cookies.
+**User Metadata**: After a user has successfuly logged in, the api will return metadata about the user and expiration time of the auth ticket.  A cookie will also be set, but it is HttpOnly, meaning it can't be read by the client.
 
 ## Interesting Things to See
 - the use of ProtectedRoutes in app.ts
