@@ -25,7 +25,6 @@ In this single-page application example we do not leverage the appid-clientsdk. 
 - the use of ProtectedRoutes in app.ts
 - the conditional display of the "User Management" menu item in HamburgerMenu.tsx based on the user's appid scope
 - the useAuth hook in header.tsx to display the hamburger and profile menus only if the user is authenticated
-- using the refresh_token to get new tokens when the access_token is expired in tokenUtils.ts
 
 ## Docker Image
 Building:
