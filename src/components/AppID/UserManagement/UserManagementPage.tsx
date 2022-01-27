@@ -44,18 +44,33 @@ export function UserManagementPage() {
   }, [startIndex, count, query]);
 
   const columns = [
-    { name: "ID", selector: (row: CloudDirectoryUser) => row.id },
-    { name: "Name", selector: (row: CloudDirectoryUser) => row.displayName },
-    { name: "User Name", selector: (row: CloudDirectoryUser) => row.userName },
-    { name: "Emails", selector: (row: CloudDirectoryUser) => row.emails[0].value },
-    { name: "Status", selector: (row: CloudDirectoryUser) => row.status },
-    { name: "Active", selector: (row: CloudDirectoryUser) => row.active },
+    { name: "ID", selector: (row: CloudDirectoryUser) => row.id, sortable: true },
+    { name: "Name", selector: (row: CloudDirectoryUser) => row.displayName, sortable: true },
+    { name: "User Name", selector: (row: CloudDirectoryUser) => row.userName, sortable: true },
+    { name: "Emails", selector: (row: CloudDirectoryUser) => row.emails[0].value, sortable: true },
+    { name: "Status", selector: (row: CloudDirectoryUser) => row.status, sortable: true },
+    { name: "Active", selector: (row: CloudDirectoryUser) => row.active, sortable: true },
   ];
+
+  const ExpandedComponent = (data: any) => <pre>{JSON.stringify(data, null, 2)}</pre>;
 
   return (
     <div className="page">
       <div className="title">{t("usermanagement.page_title")}</div>
-      {users.Resources ? <DataTable columns={columns} data={users.Resources} /> : <></>}
+      {users.Resources ? (
+        <DataTable
+          columns={columns}
+          data={users.Resources}
+          expandableRowsComponent={ExpandedComponent}
+          pagination
+          expandableRows={true}
+          expandOnRowClicked={false}
+          expandOnRowDoubleClicked={false}
+          expandableRowsHideExpander={false}
+        />
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
