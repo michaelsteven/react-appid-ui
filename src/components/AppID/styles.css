@@ -1,11 +1,11 @@
 form button {
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   font-size: 1rem;
   border: 1;
-  background-color: green;
+  background-color: rgb(39, 192, 39);
 }
 
 form button:disabled {

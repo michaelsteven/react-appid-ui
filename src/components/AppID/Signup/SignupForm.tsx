@@ -25,7 +25,7 @@ export default function SignupForm(props: SignupFormProps) {
   return (
     <form
       data-testid="component-signuppage-signupform-div"
-      onSubmit={handleSubmit((data: FormData) => onSubmit(data))}
+      onSubmit={handleSubmit((data: { [x: string]: FormData }) => onSubmit(data))}
     >
       <div className="row">
         <label>{t("signupform.firstname")}</label>

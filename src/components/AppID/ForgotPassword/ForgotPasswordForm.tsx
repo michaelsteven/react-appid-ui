@@ -22,7 +22,7 @@ export default function ForgotPasswordForm(props: FormProps) {
   return (
     <form
       data-testid="component-forgotpasswordpage-forgotpasswordform-div"
-      onSubmit={handleSubmit((data: FormData) => onSubmit(data))}
+      onSubmit={handleSubmit((data: { [x: string]: FormData }) => onSubmit(data))}
     >
       <div className="row">
         <label>{t("forgotpasswordform.email")}</label>

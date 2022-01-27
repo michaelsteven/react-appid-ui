@@ -25,7 +25,7 @@ export default function ResetPasswordForm(props: FormProps) {
   return (
     <form
       data-testid="component-resetpasswordform-div"
-      onSubmit={handleSubmit((data: FormData) => onSubmit(data))}
+      onSubmit={handleSubmit((data: { [x: string]: FormData }) => onSubmit(data))}
     >
       <div className="row">
         <label>{t("resetpasswordform.password")}</label>

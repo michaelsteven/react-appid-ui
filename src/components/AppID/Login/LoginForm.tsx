@@ -21,7 +21,7 @@ export default function LoginForm(props: LoginFormProps) {
   return (
     <form
       data-testid="component-loginpage-loginform-div"
-      onSubmit={handleSubmit((data: Credentials) => onSubmit(data))}
+      onSubmit={handleSubmit((data: { [x: string]: Credentials }) => onSubmit(data))}
     >
       <div className="row">
         <label>{t("loginform.email")}</label>

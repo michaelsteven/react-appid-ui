@@ -4,6 +4,10 @@
   src: url(./assets/fonts/Palanquin-Regular.ttf);
 }
 
+body {
+  background-color: rgb(232, 232, 232);
+}
+
 .centerdiv{
   align: center;
   max-width: 960px;
@@ -27,7 +31,7 @@
   padding-right: 1rem;
   padding-bottom: 1rem;
   color: White;
-  background: Black;
+  background: rgb(70, 70, 181);
 }
 
 .header .left-items {
@@ -39,6 +43,13 @@
   color: white;
   text-decoration: none;
   padding-left: 1rem;
+}
+
+.header .messagebarbar {
+  background: rgb(107, 175, 252);
+  min-height: 0px;
+  max-height: 100px;
+  
 }
 
 /*----------  page related -----------*/
@@ -56,11 +67,11 @@
 .title {
   display: flex;
   justify-content: Left;
-  font-size: 2em;
+  font-size: 1.75em;
   font-weight: bold;
   padding-bottom: 5px;
   margin-bottom: 0px;
-  color: #627792;
+  color: rgb(70, 70, 181);
 }
 
 /* ------   Menus  -----------*/

@@ -53,12 +53,10 @@ function DefaultSwitch() {
 
 function Content() {
   return (
-    <>
-      <div className="centerdiv">
-        <Header />
-        <DefaultSwitch />
-      </div>
-    </>
+    <div className="centerdiv">
+      <Header />
+      <DefaultSwitch />
+    </div>
   );
 }
 
