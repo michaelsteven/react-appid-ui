@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { Menu, MenuItem, MenuButton, useMenuState } from "reakit/Menu";
 import { useTranslation } from "react-i18next";
 
-type MessagesMenuProps = {
+type ProfileMenuProps = {
   onLogoutClick: MouseEventHandler<HTMLButtonElement>;
 };
 
-export default function MessagesMenu(props: MessagesMenuProps) {
+export default function ProfileMenu(props: ProfileMenuProps) {
   const menu = useMenuState();
   const { t } = useTranslation("navigation");
   const navigate = useNavigate();

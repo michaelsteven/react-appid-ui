@@ -1,41 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { UserProfile } from "../model";
-import jwt from "jwt-decode";
-import useAuth from "../common/useAuth";
 
 export function ProfilePage() {
   const emptyUser = {
+    id: "",
     name: "",
     email: "",
-    sub: "",
-    email_verified: false,
     preferred_username: "",
     given_name: "",
     family_name: "",
-    identities: {
-      provider: "",
-      id: "",
-    },
-    amr: "",
+    identities: [],
+    attributes: {},
   };
+
   const { t } = useTranslation("appid");
   const [userProfile, setUserProfile] = useState<UserProfile>(emptyUser);
-  const { auth } = useAuth();
-
-  const decodeIdentityToken = (): UserProfile => {
-    if (auth) {
-      const { id_token: idToken } = auth;
-      return idToken ? jwt<UserProfile>(idToken) : emptyUser;
-    }
-    return emptyUser;
-  };
 
   useEffect(() => {
-    const profile = decodeIdentityToken();
-    setUserProfile(profile);
-    // this is just temporary until we do more here
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setUserProfile(emptyUser);
   }, []);
 
   return (
@@ -56,9 +39,6 @@ export function ProfilePage() {
           </div>
           <div>
             {t("profileform.email")}: {userProfile.email}
-          </div>
-          <div>
-            {t("profileform.emailVerified")}: {userProfile.email_verified ? "True" : "False"}
           </div>
         </div>
       </div>
