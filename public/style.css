@@ -9,9 +9,7 @@ body {
 }
 
 .centerdiv{
-  align: center;
   max-width: 960px;
-  margin-top: 0;
   margin: auto;
   font-family: Palanquin-Regular;
 }
@@ -112,7 +110,7 @@ body {
   color: black;
 }
 
-.menuItem enabled:hover{
+.menuItem:enabled:hover{
   color: white;
   background: blue;
   cursor: pointer;

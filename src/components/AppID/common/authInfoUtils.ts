@@ -20,8 +20,7 @@ export const getAuthInfo = async (): Promise<AuthInfo | undefined> => {
 const getAuthInfoFromStorage = (): AuthInfo | undefined => {
   const authString = sessionStorage.getItem("auth");
   if (authString) {
-    const authInfo = JSON.parse(authString) as AuthInfo;
-    return authInfo;
+    return JSON.parse(authString) as AuthInfo;
   }
   return undefined;
 };

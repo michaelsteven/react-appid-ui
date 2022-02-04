@@ -4,8 +4,8 @@ import ErrorDisplay from "../../common/ErrorDisplay";
 import { sendRequest } from "../../common/sendRequest";
 import ForgotPasswordForm, { FormData } from "./ForgotPasswordForm";
 
-const forgotPassword = async (username: string) => {
-  return await sendRequest({
+const forgotPassword = (username: string) => {
+  return sendRequest({
     url: "/api/v1/appid/forgotpwd",
     method: "POST",
     body: JSON.stringify({ username: username }),

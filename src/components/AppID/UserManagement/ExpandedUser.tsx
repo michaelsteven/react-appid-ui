@@ -34,14 +34,7 @@ export function ExpandedUser(props: ExpandedUserProps) {
     }
   }, [userProfile]);
 
-  const onSelect = (selectedList: Array<Role>, selectedItem: Role) => {
-    const roleIds = selectedList.map((role: Role) => {
-      return role.id;
-    });
-    putUserRoles(userProfile.id, roleIds);
-  };
-
-  const onRemove = (selectedList: Array<Role>, removedItem: Role) => {
+  const onRolesChanged = (selectedList: Array<Role>, _selectedItem: Role) => {
     const roleIds = selectedList.map((role: Role) => {
       return role.id;
     });
@@ -62,8 +55,8 @@ export function ExpandedUser(props: ExpandedUserProps) {
             options={roles}
             displayValue="name"
             selectedValues={userRoles}
-            onSelect={onSelect}
-            onRemove={onRemove}
+            onSelect={onRolesChanged}
+            onRemove={onRolesChanged}
           />
         </div>
       </div>

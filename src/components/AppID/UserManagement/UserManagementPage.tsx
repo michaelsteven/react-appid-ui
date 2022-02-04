@@ -7,7 +7,6 @@ import { ExpandedUser } from "./ExpandedUser";
 
 export function UserManagementPage() {
   const { t } = useTranslation("appid");
-  // const [pageSize, setPageSize] = useState<number>(5);
   const [pagedUsers, setPagedUsers] = useState<Users>({
     totalResults: 0,
     itemsPerPage: 0,
@@ -19,12 +18,12 @@ export function UserManagementPage() {
   const count = 100;
   const query = "";
 
-  const getRoles = async () => {
+  const getRoles = () => {
     const url = "api/v1/appid/roles";
-    return await sendRequest({ url: url, method: "GET" });
+    return sendRequest({ url: url, method: "GET" });
   };
 
-  const getUsers = async (payload: { startIndex?: number; count?: number; query?: string }) => {
+  const getUsers = (payload: { startIndex?: number; count?: number; query?: string }) => {
     const searchParams = new URLSearchParams();
     if (payload.startIndex) {
       searchParams.append("startIndex", payload.startIndex.toString());
@@ -36,7 +35,7 @@ export function UserManagementPage() {
       searchParams.append("query", payload.query);
     }
     const url = "/api/v1/appid/users?".concat(searchParams.toString());
-    return await sendRequest({ url: url, method: "GET" });
+    return sendRequest({ url: url, method: "GET" });
   };
 
   useEffect(() => {

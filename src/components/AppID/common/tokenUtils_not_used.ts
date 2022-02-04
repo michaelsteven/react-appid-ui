@@ -31,8 +31,7 @@ export const getAccessToken = async (): Promise<AccessToken> => {
 const getAuthTokenFromStorage = (): AuthToken | undefined => {
   const authString = sessionStorage.getItem("auth");
   if (authString) {
-    const authToken = JSON.parse(authString);
-    return authToken;
+    return JSON.parse(authString);
   }
   return undefined;
 };
