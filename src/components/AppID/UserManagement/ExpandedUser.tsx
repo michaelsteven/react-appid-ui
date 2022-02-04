@@ -39,7 +39,6 @@ export function ExpandedUser(props: ExpandedUserProps) {
       return role.id;
     });
     putUserRoles(userProfile.id, roleIds);
-    alert(`in onSelect: ${JSON.stringify(roleIds)}`);
   };
 
   const onRemove = (selectedList: Array<Role>, removedItem: Role) => {
@@ -47,7 +46,6 @@ export function ExpandedUser(props: ExpandedUserProps) {
       return role.id;
     });
     putUserRoles(userProfile.id, roleIds);
-    alert(`onRemove: ${JSON.stringify(roleIds)}`);
   };
 
   return (
