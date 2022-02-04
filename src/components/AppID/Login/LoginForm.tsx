@@ -14,9 +14,14 @@ export default function LoginForm(props: LoginFormProps) {
   const {
     register,
     handleSubmit,
+    setFocus,
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: "onChange" });
   const { onSubmit } = props;
+
+  React.useEffect(() => {
+    setFocus("username");
+  }, [setFocus]);
 
   return (
     <form

@@ -12,7 +12,7 @@ export default function Header() {
   const { t } = useTranslation();
 
   const handleLogoutClick = async () => {
-    setAuth(undefined);
+    setAuth();
     await logout();
     window.location.reload();
   };
