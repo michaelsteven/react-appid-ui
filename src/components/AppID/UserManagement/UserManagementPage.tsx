@@ -61,9 +61,9 @@ export function UserManagementPage() {
   }, [startIndex, count, query]);
 
   const columns = [
-    { name: "ID", selector: (row: UserProfile) => row.id, sortable: true },
-    { name: "Name", selector: (row: UserProfile) => row.name, sortable: true },
-    { name: "Email", selector: (row: UserProfile) => row.email, sortable: true },
+    { name: "Last", selector: (row: UserProfile) => row.family_name, sortable: true },
+    { name: "First", selector: (row: UserProfile) => row.given_name, sortable: true },
+    { name: "Email", selector: (row: UserProfile) => row.email, sortable: true, grow: 2 },
     {
       name: "Status",
       selector: (row: UserProfile) => row.identities[0].idpUserInfo.status,
@@ -93,6 +93,7 @@ export function UserManagementPage() {
           expandOnRowClicked={false}
           expandOnRowDoubleClicked={false}
           expandableRowsHideExpander={false}
+          dense
         />
       ) : (
         <></>

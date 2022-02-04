@@ -45,7 +45,6 @@ export function getContext(): string {
 }
 
 export function ResetPasswordPage() {
-  // const { setAuth } = useAuth();
   const [showForm, setShowForm] = useState<boolean>(true);
   const [error, setError] = useState<unknown>();
   const { t } = useTranslation("appid");
@@ -57,15 +56,14 @@ export function ResetPasswordPage() {
       resetPassword(newPassword, context)
         .then(async (response) => {
           if (response.ok) {
-            // const json = await response.json();
             setShowForm(false);
           } else {
             const { message } = await response.json();
             setError(message);
           }
         })
-        .catch((error) => {
-          setError(error.error);
+        .catch((error1) => {
+          setError(error1.error);
         });
     }
   };

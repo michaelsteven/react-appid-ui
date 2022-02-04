@@ -36,8 +36,8 @@ export function LoginPage() {
             setError(message);
           }
         })
-        .catch((error: any) => {
-          setError(error);
+        .catch((error1: any) => {
+          setError(error1);
         });
     }
   };

@@ -30,8 +30,8 @@ export function ChangePasswordPage() {
             setError(message);
           }
         })
-        .catch((error) => {
-          setError(error.error);
+        .catch((error1) => {
+          setError(error1.error);
         });
     }
   };
