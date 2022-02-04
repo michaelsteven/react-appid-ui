@@ -16,13 +16,12 @@ form input {
   display: block;
   width: 250px;
   font-size: 1.25em;
-  padding-top: 5px;
+  padding: 5px;
   margin-top: 5px;
   margin-bottom: 20px;
   color: black;
   background-color: #ececec;
   border: 0px;
-  padding: 5px;
 }
 
 form span {
