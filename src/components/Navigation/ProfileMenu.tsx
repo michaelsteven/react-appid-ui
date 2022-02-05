@@ -27,7 +27,7 @@ export default function ProfileMenu(props: ProfileMenuProps) {
         data-testid="component-navigation-profilemenu-button"
         aria-label={t("profile.menubutton.aria-label")}
       >
-        {t("profile.menubutton.text")}
+        <img src="/assets/icons/icon-profile.svg" alt="" />
       </MenuButton>
       <Menu {...menu} className="menu" aria-label={t("profile.menu.aria-label")}>
         <MenuItem
