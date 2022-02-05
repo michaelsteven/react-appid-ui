@@ -29,7 +29,22 @@
     "passwordchanged": "Your password has been changed"
   },
   "usermanagement": {
-    "page_title": "User Management"
+    "page_title": "User Management",
+    "last": "Last",
+    "first": "First",
+    "email": "Email",
+    "status": "Status",
+    "active": "Active",
+    "rows_per_page": "Rows per page",
+    "of": "of",
+    "all": "All",
+    "id": "ID",
+    "created": "Created",
+    "last_login": "Last Login",
+    "roles": "Roles",
+    "true": "true",
+    "false": "false",
+    "no_records": "No records to display"
   },
   "signupform": {
     "firstname": "First Name",

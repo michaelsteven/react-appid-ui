@@ -107,6 +107,7 @@
   },
   "devDependencies": {
     "@types/react-table": "^7.7.9",
+    "@types/styled-components": "^5.1.22",
     "ts-jest": "^27.1.3"
   }
 }

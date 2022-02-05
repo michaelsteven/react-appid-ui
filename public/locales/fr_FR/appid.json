@@ -29,7 +29,22 @@
     "passwordchanged": "Votre mot de passe a été changé"
   },
   "usermanagement": {
-    "page_title": "Gestion des utilisateurs"
+    "page_title": "Gestion des utilisateurs",
+    "last": "Nom de famille",
+    "first": "Prénom",
+    "email": "E-mail",
+    "status": "Statut",
+    "active": "Actif",
+    "rows_per_page": "Lignes par page",
+    "of": "de",
+    "all": "Tout",
+    "id": "Identifiant",
+    "created": "Établi",
+    "last_login": "Dernière connexion",
+    "roles": "Les rôles",
+    "true": "vrai",
+    "false": "faux",
+    "no_records": "Aucun enregistrement à afficher"
   },
   "signupform": {
     "firstname": "Prénom",

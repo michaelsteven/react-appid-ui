@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { sendRequest } from "../../common/sendRequest";
 import { Role, UserProfile } from "../model";
 import { Multiselect } from "multiselect-react-dropdown";
@@ -9,6 +10,7 @@ type ExpandedUserProps = {
 };
 
 export function ExpandedUser(props: ExpandedUserProps) {
+  const { t } = useTranslation("appid");
   const { userProfile, roles } = props;
   const [userRoles, setUserRoles] = useState<Array<Role>>([]);
 
@@ -43,14 +45,27 @@ export function ExpandedUser(props: ExpandedUserProps) {
 
   return (
     <pre>
-      <div>ID: {userProfile.identities[0].idpUserInfo.id}</div>
-      <div>Status: {userProfile.identities[0].idpUserInfo.status}</div>
-      <div>Active: {String(userProfile.identities[0].idpUserInfo.active)}</div>
-      <div>Created: {userProfile.identities[0].idpUserInfo.meta.created}</div>
-      <div>Last Login: {userProfile.identities[0].idpUserInfo.meta.lastLogin}</div>
+      <div>
+        {t("usermanagement.id")}: {userProfile.identities[0].idpUserInfo.id}
+      </div>
+      <div>
+        {t("usermanagement.status")}: {userProfile.identities[0].idpUserInfo.status}
+      </div>
+      <div>
+        {t("usermanagement.active")}:{" "}
+        {userProfile.identities[0].idpUserInfo.active
+          ? t("usermanagement.true")
+          : t("usermanagement.false")}
+      </div>
+      <div>
+        {t("usermanagement.created")}: {userProfile.identities[0].idpUserInfo.meta.created}
+      </div>
+      <div>
+        {t("usermanagement.last_login")}: {userProfile.identities[0].idpUserInfo.meta.lastLogin}
+      </div>
       <div>
         <div style={{ width: "400px" }}>
-          Roles:{" "}
+          {t("usermanagement.roles")}:{" "}
           <Multiselect
             options={roles}
             displayValue="name"

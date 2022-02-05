@@ -4,9 +4,11 @@ import DataTable from "react-data-table-component";
 import { sendRequest } from "../../common/sendRequest";
 import { Role, UserProfile, Users } from "../model";
 import { ExpandedUser } from "./ExpandedUser";
+import { Loader } from "../../common/Loader";
 
 export function UserManagementPage() {
   const { t } = useTranslation("appid");
+  const [pending, setPending] = React.useState(true);
   const [pagedUsers, setPagedUsers] = useState<Users>({
     totalResults: 0,
     itemsPerPage: 0,
@@ -43,6 +45,7 @@ export function UserManagementPage() {
       if (response.ok) {
         response.json().then((payload: { roles: Array<Role> }) => {
           setRoles(payload.roles);
+          setPending(false);
         });
       }
     });
@@ -60,17 +63,31 @@ export function UserManagementPage() {
   }, [startIndex, count, query]);
 
   const columns = [
-    { name: "Last", selector: (row: UserProfile) => row.family_name, sortable: true },
-    { name: "First", selector: (row: UserProfile) => row.given_name, sortable: true },
-    { name: "Email", selector: (row: UserProfile) => row.email, sortable: true, grow: 2 },
     {
-      name: "Status",
+      name: t("usermanagement.last"),
+      selector: (row: UserProfile) => row.family_name,
+      sortable: true,
+    },
+    {
+      name: t("usermanagement.first"),
+      selector: (row: UserProfile) => row.given_name,
+      sortable: true,
+    },
+    {
+      name: t("usermanagement.email"),
+      selector: (row: UserProfile) => row.email,
+      sortable: true,
+      grow: 2,
+    },
+    {
+      name: t("usermanagement.status"),
       selector: (row: UserProfile) => row.identities[0].idpUserInfo.status,
       sortable: true,
     },
     {
-      name: "Active",
-      selector: (row: UserProfile) => String(row.identities[0].idpUserInfo.active),
+      name: t("usermanagement.active"),
+      selector: (row: UserProfile) =>
+        row.identities[0].idpUserInfo.active ? t("usermanagement.true") : t("usermanagement.false"),
       sortable: true,
     },
   ];
@@ -78,6 +95,12 @@ export function UserManagementPage() {
   const ExpandedComponent = (data: { data: UserProfile }) => (
     <ExpandedUser userProfile={data.data} roles={roles} />
   );
+
+  const paginationOptions = {
+    rowsPerPageText: t("usermanagement.rows_per_page"),
+    rangeSeparatorText: t("usermanagement.of"),
+    SelectAllRowsItemText: t("usermanagement.all"),
+  };
 
   return (
     <div className="page">
@@ -93,6 +116,10 @@ export function UserManagementPage() {
           expandOnRowDoubleClicked={false}
           expandableRowsHideExpander={false}
           dense
+          paginationComponentOptions={paginationOptions}
+          progressPending={pending}
+          progressComponent={<Loader />}
+          noDataComponent={t("usermanagement.no_records")}
         />
       ) : (
         <></>
