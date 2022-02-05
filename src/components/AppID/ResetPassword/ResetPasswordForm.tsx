@@ -18,9 +18,14 @@ export default function ResetPasswordForm(props: FormProps) {
     getValues,
     register,
     handleSubmit,
+    setFocus,
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: "onChange" });
   const { onSubmit } = props;
+
+  React.useEffect(() => {
+    setFocus("password");
+  }, [setFocus]);
 
   return (
     <form

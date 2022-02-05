@@ -19,8 +19,13 @@ export default function SignupForm(props: SignupFormProps) {
     getValues,
     register,
     handleSubmit,
+    setFocus,
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: "onChange" });
+
+  React.useEffect(() => {
+    setFocus("firstName");
+  }, [setFocus]);
 
   return (
     <form

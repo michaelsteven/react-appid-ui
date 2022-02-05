@@ -15,9 +15,14 @@ export default function ForgotPasswordForm(props: FormProps) {
   const {
     register,
     handleSubmit,
+    setFocus,
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: "onChange" });
   const { onSubmit } = props;
+
+  React.useEffect(() => {
+    setFocus("username");
+  }, [setFocus]);
 
   return (
     <form

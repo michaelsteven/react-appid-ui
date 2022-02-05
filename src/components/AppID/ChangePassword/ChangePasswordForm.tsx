@@ -18,9 +18,14 @@ export default function ChangePasswordForm(props: FormProps) {
     getValues,
     register,
     handleSubmit,
+    setFocus,
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: "onChange" });
   const { onSubmit } = props;
+
+  React.useEffect(() => {
+    setFocus("newPassword");
+  }, [setFocus]);
 
   return (
     <form
