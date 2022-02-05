@@ -41,14 +41,6 @@ export default function ProfileMenu(props: ProfileMenuProps) {
         <MenuItem
           {...menu}
           className="menuItem"
-          aria-label={t("profile.menu.items.account")}
-          onClick={menu.hide}
-        >
-          {t("profile.menu.items.account")}
-        </MenuItem>
-        <MenuItem
-          {...menu}
-          className="menuItem"
           aria-label={t("profile.menu.items.changepassword")}
           onClick={() => handleItemClick("/changepassword")}
         >

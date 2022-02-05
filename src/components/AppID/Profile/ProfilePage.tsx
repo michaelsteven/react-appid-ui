@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { sendRequest } from "../../common/sendRequest";
 import { UserProfile } from "../model";
 
 export function ProfilePage() {
@@ -17,8 +18,19 @@ export function ProfilePage() {
   const { t } = useTranslation("appid");
   const [userProfile, setUserProfile] = useState<UserProfile>(emptyUser);
 
+  const getProfile = () => {
+    const url = "api/v1/appid/profile";
+    return sendRequest({ url: url, method: "GET" });
+  };
+
   useEffect(() => {
-    setUserProfile(emptyUser);
+    getProfile().then((response: Response) => {
+      if (response.ok) {
+        response.json().then((profile: UserProfile) => {
+          setUserProfile(profile);
+        });
+      }
+    });
   }, []);
 
   return (
