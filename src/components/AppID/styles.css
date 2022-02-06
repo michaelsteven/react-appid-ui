@@ -38,3 +38,10 @@ form .row {
   max-width: 250px;
   align-content: "space-between";
 }
+
+.square {
+  height: 125px;
+  width: 125px;
+  text-align: center;
+  background-color: rgb(222, 234, 247);
+}

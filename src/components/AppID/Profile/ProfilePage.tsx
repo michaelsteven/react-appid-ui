@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { sendRequest } from "../../common/sendRequest";
 import { UserProfile } from "../model";
+import { ProfileAvatarEditor } from "./ProfileAvatarEditor";
 
 export function ProfilePage() {
   const emptyUser = {
@@ -40,6 +41,9 @@ export function ProfilePage() {
           <div className="title">Profile Page</div>
         </div>
         <div>
+          <div>
+            Avatar: <ProfileAvatarEditor />
+          </div>
           <div>
             {t("profileform.username")}: {userProfile.preferred_username}
           </div>
