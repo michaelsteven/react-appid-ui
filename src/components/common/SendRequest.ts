@@ -4,7 +4,7 @@ import { getAuthInfo } from "../AppID/common/authInfoUtils";
 type SendRequestOptions = {
   url: string;
   method: string;
-  body?: string;
+  body?: any;
   headers?: any;
   credentials?: any;
 };
