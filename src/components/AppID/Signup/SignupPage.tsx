@@ -1,18 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { sendRequest } from "../../common/sendRequest";
 import ErrorDisplay from "../../common/ErrorDisplay";
 import AccountForm from "./SignupForm";
 import { Account } from "../model";
-
-export function createAccount(account: Account) {
-  return sendRequest({
-    url: "/api/v1/appid/signup",
-    method: "POST",
-    body: JSON.stringify(account),
-  });
-}
+import { createAccount } from "./api";
+import { CloudDirectoryUser } from "../model/CloudDirectoryUser";
 
 export function SignupPage() {
   const [showForm, setShowForm] = useState<boolean>(true);
@@ -27,13 +20,14 @@ export function SignupPage() {
   ) => {
     if (account) {
       delete account.reenterpassword;
-      createAccount(account)
+      createAccount("", account)
         .then(async (response) => {
-          if (response.ok) {
-            const json = await response.json();
+          console.log(response);
+          if (response.status === 200) {
+            const json: CloudDirectoryUser = await response.data;
             json.status === "PENDING" ? setShowForm(false) : navigate("/");
           } else {
-            const { message } = await response.json();
+            const { message } = await response.data;
             setError(message);
           }
         })
