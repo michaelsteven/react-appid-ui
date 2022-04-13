@@ -6,3 +6,6 @@ export * from "./UserProfile";
 export * from "./Role";
 export * from "./Users";
 export * from "./CloudDirectoryUser";
+export * from "./Locale";
+export * from "./Locales";
+export * from "./Languages";

@@ -14,6 +14,7 @@ import {
   ResetPasswordPage,
   ChangePasswordPage,
   UserManagementPage,
+  SupportedLocalesPage,
 } from "./AppID";
 
 function Head() {
@@ -46,6 +47,7 @@ function DefaultSwitch() {
       </Route>
       <Route element={<ProtectedRoutes oneOfRoles={["user_management"]} />}>
         <Route path="/usermanagement" element={<UserManagementPage />} />
+        <Route path="/supportedlocales" element={<SupportedLocalesPage />} />
       </Route>
     </Routes>
   );

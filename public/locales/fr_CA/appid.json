@@ -19,6 +19,17 @@
     "instructions": "Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
     "resetemailsent": "Un e-mail a été envoyé avec des instructions sur la façon de réinitialiser votre mot de passe."
   },
+  "supportedlocales": {
+    "page_title": "Langues prises en charge",
+    "rows_per_page": "Lignes par page",
+    "of": "de",
+    "all": "Tout",
+    "code": "Code",
+    "language": "Langue",
+    "region": "Région",
+    "no_records": "Aucun enregistrement à afficher",
+    "add_language": "Ajouter/supprimer une langue"
+  },
   "resetpassword": {
     "page_title": "Réinitialiser le mot de passe",
     "success": "Votre mot de passe a été changé. Cliquez sur le bouton de connexion ci-dessous pour utiliser votre nouveau mot de passe.",

@@ -9,10 +9,14 @@ export default function HamburgerMenu() {
   const { t } = useTranslation("navigation");
   const navigate = useNavigate();
   const [showUserManagement, setShowUserManagement] = useState<boolean>(false);
+  const [showSupportedLocales, setShowSupportedLocales] = useState<boolean>(false);
 
   useEffect(() => {
     containsScope("user_management").then((result: boolean) => {
       setShowUserManagement(result);
+    });
+    containsScope("app_management").then((result: boolean) => {
+      setShowSupportedLocales(result);
     });
   }, []);
 
@@ -66,7 +70,7 @@ export default function HamburgerMenu() {
         >
           {t("hamburger.menu.items.item3")}
         </MenuItem>
-        {/* Admin Menu Item */}
+        {/* Admin Menu Items */}
         {showUserManagement ? (
           <MenuItem
             className="menuItem"
@@ -75,6 +79,18 @@ export default function HamburgerMenu() {
             {...menu}
           >
             {t("hamburger.menu.items.usermanagement")}
+          </MenuItem>
+        ) : (
+          <></>
+        )}
+        {showSupportedLocales ? (
+          <MenuItem
+            className="menuItem"
+            onClick={() => handleItemClick("/supportedlocales")}
+            aria-label={t("hamburger.menu.items.supportedlocales")}
+            {...menu}
+          >
+            {t("hamburger.menu.items.supportedlocales")}
           </MenuItem>
         ) : (
           <></>

@@ -1,0 +1,1 @@
+export { SupportedLocalesPage } from "./SupportedLocalesPage";

@@ -10,7 +10,8 @@
         "item1": "Objet 1",
         "item2": "Objet 2",
         "item3": "Objet 3",
-        "usermanagement": "Gestion des utilisateurs"
+        "usermanagement": "Gestion des utilisateurs",
+        "supportedlocales": "Langues prises en charge"
       }
     }
   },

@@ -24,6 +24,17 @@
     "success": "Votre mot de passe a été changé. Cliquez sur le bouton de connexion ci-dessous pour utiliser votre nouveau mot de passe.",
     "login": "Connexion"
   },
+  "supportedlocales": {
+    "page_title": "Langues prises en charge",
+    "rows_per_page": "Lignes par page",
+    "of": "de",
+    "all": "Tout",
+    "code": "Code",
+    "language": "Langue",
+    "region": "Région",
+    "no_records": "Aucun enregistrement à afficher",
+    "add_language": "Ajouter/supprimer une langue"
+  },
   "changepassword": {
     "page_title": "Changer le mot de passe",
     "passwordchanged": "Votre mot de passe a été changé"
